@@ -1,0 +1,55 @@
+// CORE
+// ===============================================
+@use "../abstracts/index" as *;
+// ===============================================
+
+// ORG: site-header
+// ===============================================
+// A minimal page header organism composed from atoms and molecules.
+// Composes: atom-icon, atom-btn, mol-btn-group
+// ===============================================
+@mixin org-site-header($theme: null) {
+  @layer syx.organisms {
+
+  .org-site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--semantic-space-layout-sm) var(--semantic-space-layout-md);
+    background-color: var(--semantic-color-bg-primary);
+    border-bottom: 1px solid var(--semantic-color-border-subtle);
+    width: 100%;
+
+    // &__brand
+    &__brand {
+      display: flex;
+      align-items: center;
+      gap: var(--semantic-space-component-sm);
+      font-family: var(--semantic-font-family-heading);
+      font-size: var(--semantic-font-size-h4);
+      font-weight: var(--semantic-font-weight-bold);
+      color: var(--semantic-color-text-primary);
+      text-decoration: none;
+
+      &:hover {
+        color: var(--semantic-color-primary);
+      }
+    }
+
+    // &__nav
+    &__nav {
+      display: flex;
+      align-items: center;
+      gap: var(--semantic-space-component-md);
+    }
+
+    // &__actions
+    &__actions {
+      display: flex;
+      align-items: center;
+      gap: var(--semantic-space-component-sm);
+    }
+  }
+
+  } // end @layer syx.organisms
+}
