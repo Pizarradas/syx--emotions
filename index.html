@@ -1,0 +1,546 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="joy">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="The flagship demo for the SYX Design System. A high-fidelity tech portal showcasing instant CSS-variable theming, BEM architecture, and advanced GSAP ScrollTrigger animations.">
+  <title>SYX Emotions - Home</title>
+  <link rel="stylesheet" href="css/bundle-emotions-home.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display:ital@0;1&family=Montserrat:ital,wght@0,400;0,700;0,900;1,400&family=Oswald:wght@400;700&family=Outfit:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap"
+    rel="stylesheet">
+</head>
+
+<body class="page-home">
+
+  <!-- EXPERIENTIAL PRELOADER (Phase 14) -->
+  <div class="org-preloader">
+    <h1 class="org-preloader__percent">0%</h1>
+    <p class="org-preloader__text">Loading Vanguard Experience</p>
+  </div>
+
+  <!-- 3D BACKGROUND -->
+  <canvas id="three-canvas"
+    style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; pointer-events: none;"></canvas>
+
+  <!-- GLOBAL SITE HEADER -->
+  <header class="org-site-header">
+    <a href="index.html" class="org-site-header__logo" aria-label="SYX Home" data-magnetic>
+      SYX<span class="dot">.</span>
+    </a>
+
+    <button class="org-site-header__menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+      <span class="line"></span>
+      <span class="line"></span>
+      <span class="line"></span>
+    </button>
+
+    <nav class="org-site-header__nav" aria-label="Main Navigation">
+      <a href="#" class="org-site-header__link" data-magnetic>News</a>
+      <a href="#" class="org-site-header__link" data-magnetic>Culture</a>
+      <a href="#" class="org-site-header__link" data-magnetic data-intensity="0.8">Tech</a>
+    </nav>
+  </header>
+
+  <!-- THE HERO -->
+  <section class="org-news-hero" aria-label="Featured Story">
+    <div class="org-news-hero__bg">
+      <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=2070&auto=format&fit=crop" alt=""
+        aria-hidden="true" fetchpriority="high" decoding="sync">
+    </div>
+    <div class="org-news-hero__layout">
+      <div class="org-news-hero__content">
+        <span class="org-news-hero__badge">Storytelling Experience</span>
+        <h1 class="org-news-hero__title">Lorem Ipsum Dolor Sit Amet</h1>
+        <p class="org-news-hero__excerpt">Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua. Ut enim ad minim veniam.</p>
+        <div class="org-news-hero__meta">
+          <span class="author">Designed by <strong>José Luis Pizarro Feo</strong></span>
+          <span class="date">Feb 28, 2026</span>
+          <span class="read-time">5 min read</span>
+        </div>
+
+        <!-- Giant Magnetic CTA (Phase 14) -->
+        <a href="article.html" class="mol-cta--giant" data-magnetic data-intensity="0.6">Read The Story</a>
+      </div>
+
+      <!-- Phase 15: Editor's Pick Floating Element -->
+      <div class="org-news-hero__subfeature">
+        <figure class="mol-hero-card" data-speed="0.9">
+          <div class="mol-hero-card__img-wrapper">
+            <img src="https://images.unsplash.com/photo-1493612276216-ee3925520721?q=80&w=1000&auto=format&fit=crop"
+              alt="Architectural spiral staircase" fetchpriority="high" decoding="sync">
+          </div>
+          <figcaption class="mol-hero-card__caption">
+            <span class="mol-hero-card__tag">Editor's Pick</span>
+            <strong>Vanguard architecture shifts global paradigms.</strong>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHASE 18: BREAKING NEWS MARQUEE -->
+  <section class="org-marquee" aria-label="Breaking News Ticker">
+    <div class="org-marquee__track" id="marquee-track">
+      <div class="org-marquee__content">
+        <span>Global markets brace for AI legislation impact</span><span class="separator">/</span>
+        <span>New neural interface breaks records in beta testing</span><span class="separator">/</span>
+        <span>Vanguard Architecture Summit announced for 2026</span><span class="separator">/</span>
+        <span>Quantum computing reaches consumer level availability</span><span class="separator">/</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHASE 18: GSAP SCRUB TEXT REVEAL -->
+  <section class="org-text-reveal" aria-label="Syx Manifesto">
+    <div class="org-text-reveal__container">
+      <p class="org-text-reveal__text js-reveal-text">
+        We are standing at the precipice of a new digital dawn. The way we consume information, the way we digest
+        emotions, and the way we build the future is evolving. Technology is no longer a tool; it is the environment.
+        Embrace the Vanguard.
+      </p>
+    </div>
+  </section>
+
+  <!-- THE ASYMMETRICAL GRID -->
+  <main class="org-news-grid">
+
+    <!-- Card 1 -->
+    <a href="article.html" class="molecule-news-card">
+      <figure class="molecule-news-card__figure">
+        <img class="molecule-news-card__img" data-speed="0.85"
+          src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Data" loading="lazy" decoding="async" />
+      </figure>
+      <div class="molecule-news-card__body">
+        <span class="molecule-news-card__tag">Ipsum Dolor</span>
+        <h2 class="molecule-news-card__title">Ut Enim Ad Minim Veniam</h2>
+        <p class="molecule-news-card__excerpt">Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat duis aute irure dolor.</p>
+        <div class="molecule-news-card__meta">
+          <span>Dolore Magna</span>
+          <span>12m ago</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 2 -->
+    <a href="article.html" class="molecule-news-card">
+      <figure class="molecule-news-card__figure">
+        <img class="molecule-news-card__img" data-speed="0.85"
+          src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2000&auto=format&fit=crop"
+          alt="Abstract" loading="lazy" decoding="async" />
+      </figure>
+      <div class="molecule-news-card__body">
+        <span class="molecule-news-card__tag">Sit Amet</span>
+        <h2 class="molecule-news-card__title">Excepteur Sint Occaecat Cupidatat</h2>
+        <p class="molecule-news-card__excerpt">Non proident, sunt in culpa qui officia deserunt mollit anim id est
+          laborum facilisis ac ultricies eu.</p>
+        <div class="molecule-news-card__meta">
+          <span>Reprehenderit</span>
+          <span>1h ago</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 3 -->
+    <a href="article.html" class="molecule-news-card">
+      <figure class="molecule-news-card__figure">
+        <img class="molecule-news-card__img" data-speed="0.85"
+          src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop"
+          alt="Tech" loading="lazy" decoding="async" />
+      </figure>
+      <div class="molecule-news-card__body">
+        <span class="molecule-news-card__tag">Elit Eget</span>
+        <h2 class="molecule-news-card__title">Nullam Varius Turpis Et Commo</h2>
+        <p class="molecule-news-card__excerpt">Est eros bibendum elit, nec luctus magna felis sollicitudin mauris
+          integer in mauris eu nibh.</p>
+        <div class="molecule-news-card__meta">
+          <span>In Voluptate</span>
+          <span>3h ago</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 4 -->
+    <a href="article.html" class="molecule-news-card">
+      <figure class="molecule-news-card__figure">
+        <img class="molecule-news-card__img" data-speed="0.85"
+          src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?q=80&w=2070&auto=format&fit=crop"
+          alt="Market" loading="lazy" decoding="async" />
+      </figure>
+      <div class="molecule-news-card__body">
+        <span class="molecule-news-card__tag">Consectetur</span>
+        <h2 class="molecule-news-card__title">Curabitur A Felis In Nunc</h2>
+        <p class="molecule-news-card__excerpt">Morbi mattis ullamcorper velit phasellus gravida semper nisi nullam vel
+          sem aenean laoreet vestibulum.</p>
+        <div class="molecule-news-card__meta">
+          <span>Esse Cillum</span>
+          <span>4h ago</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 5 -->
+    <a href="article.html" class="molecule-news-card">
+      <figure class="molecule-news-card__figure">
+        <img class="molecule-news-card__img" data-speed="0.85"
+          src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop" alt="Code" loading="lazy" decoding="async" />
+      </figure>
+      <div class="molecule-news-card__body">
+        <span class="molecule-news-card__tag">Adipisci</span>
+        <h2 class="molecule-news-card__title">Mauris Placerat Eleifend Leo</h2>
+        <p class="molecule-news-card__excerpt">Quisque sit amet est et sapien ullamcorper pharetra vestibulum erat wisi
+          condimentum sed wisi.</p>
+        <div class="molecule-news-card__meta">
+          <span>Fugiat Nulla</span>
+          <span>6h ago</span>
+        </div>
+      </div>
+    </a>
+
+  </main>
+
+  </main>
+
+  <!-- PHASE 22: TYPOGRAPHY DIVIDER -->
+  <section class="org-typography-divider" aria-label="Quote of the week">
+    <div class="org-typography-divider__bg-graphic js-parallax-text" data-speed="1.2">SYX</div>
+    <div class="org-typography-divider__content js-scale-text">
+      <span class="org-typography-divider__eyebrow">The Manifesto</span>
+      <h2 class="org-typography-divider__title">
+        Code is <br>
+        <span class="org-typography-divider__title--outline">Poetry</span>
+      </h2>
+    </div>
+  </section>
+
+  <!-- PHASE 23: THE MASONRY MAZE (Animated Columns) -->
+  <section class="org-masonry-grid" aria-label="Selected Features">
+
+    <!-- COLUMN 1 (Moves UP) -->
+    <div class="org-masonry-column" data-direction="up" data-duration="25">
+      <div class="org-masonry-column__inner js-masonry-track">
+        <!-- Item 1 -->
+        <article class="org-masonry-item">
+          <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80" alt="Tech"
+            class="org-masonry-item__img" data-speed="0.9" loading="lazy" decoding="async">
+          <div class="org-masonry-item__cover">
+            <h3 class="org-masonry-item__title-front">Next-Gen Interface</h3>
+          </div>
+          <div class="org-masonry-item__content">
+            <span class="org-masonry-item__tag">Design</span>
+            <p class="org-masonry-item__excerpt">Breaking down the barriers between human intent and machine execution.
+            </p>
+            <div class="org-masonry-item__author">
+              <img src="https://i.pravatar.cc/150?img=32" alt="Author" loading="lazy" decoding="async">
+              <span>By Sarah Jenks</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 2 -->
+        <article class="org-masonry-item org-masonry-item--tall">
+          <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=800&q=80" alt="Market"
+            class="org-masonry-item__img" data-speed="0.85" loading="lazy" decoding="async">
+          <div class="org-masonry-item__cover org-masonry-item__cover--solid">
+            <h3 class="org-masonry-item__title-front">03</h3>
+          </div>
+          <div class="org-masonry-item__content">
+            <span class="org-masonry-item__tag">Economy</span>
+            <p class="org-masonry-item__excerpt">The silent crash: What happens when trading bots decide the market is
+              no longer logical.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- COLUMN 2 (Moves DOWN) -->
+    <div class="org-masonry-column" data-direction="down" data-duration="35">
+      <div class="org-masonry-column__inner js-masonry-track">
+        <!-- Item 3 -->
+        <article class="org-masonry-item org-masonry-item--huge">
+          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&q=80" alt="Abstract"
+            class="org-masonry-item__img" data-speed="0.8" loading="lazy" decoding="async">
+          <div class="org-masonry-item__cover">
+            <h3 class="org-masonry-item__title-front">The Aesthetic of Algorithms</h3>
+          </div>
+          <div class="org-masonry-item__content">
+            <span class="org-masonry-item__tag">Culture</span>
+            <p class="org-masonry-item__excerpt">How machine learning models are beginning to develop distinct artistic
+              styles that challenge our definition of creativity.</p>
+            <div class="org-masonry-item__author">
+              <img src="https://i.pravatar.cc/150?img=12" alt="Author" loading="lazy" decoding="async">
+              <span>By Marcus Reed</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- COLUMN 3 (Moves UP) -->
+    <div class="org-masonry-column" data-direction="up" data-duration="40">
+      <div class="org-masonry-column__inner js-masonry-track">
+        <!-- Item 4 -->
+        <article class="org-masonry-item org-masonry-item--wide">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1000&q=80" alt="Data"
+            class="org-masonry-item__img" data-speed="0.95" loading="lazy" decoding="async">
+          <div class="org-masonry-item__cover">
+            <h3 class="org-masonry-item__title-front">Data Sovereignty in 2026</h3>
+          </div>
+          <div class="org-masonry-item__content">
+            <span class="org-masonry-item__tag">Policy</span>
+            <p class="org-masonry-item__excerpt">The battle for who owns your digital shadow is moving from the courts
+              to the code level.</p>
+          </div>
+        </article>
+
+        <!-- Item 5 -->
+        <article class="org-masonry-item">
+          <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=800&q=80" alt="Geometry"
+            class="org-masonry-item__img" data-speed="0.9" loading="lazy" decoding="async">
+          <div class="org-masonry-item__cover">
+            <h3 class="org-masonry-item__title-front">Beyond the Grid</h3>
+          </div>
+          <div class="org-masonry-item__content">
+            <span class="org-masonry-item__tag">Opinion</span>
+            <p class="org-masonry-item__excerpt">Why brutalist web design keeps coming back to haunt us.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- PHASE 18: HOVER IMAGE GALLERY -->
+  <section class="org-hover-gallery" aria-label="Editorials">
+    <div class="org-hover-gallery__images">
+      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80" alt="Tech"
+        class="org-hover-gallery__img js-hover-img" loading="lazy" decoding="async">
+      <img src="https://images.unsplash.com/photo-1493612276216-ee3925520721?w=800&q=80" alt="Design"
+        class="org-hover-gallery__img js-hover-img" loading="lazy" decoding="async">
+      <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=800&q=80" alt="Art"
+        class="org-hover-gallery__img js-hover-img" loading="lazy" decoding="async">
+      <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=800&q=80" alt="Abstract"
+        class="org-hover-gallery__img js-hover-img" loading="lazy" decoding="async">
+    </div>
+    <ul class="org-hover-gallery__list js-hover-list">
+      <li class="org-hover-gallery__item">
+        <h2 class="org-hover-gallery__title">The Post-Screen Era</h2>
+        <span class="org-hover-gallery__meta">Editorial • 4 min</span>
+      </li>
+      <li class="org-hover-gallery__item">
+        <h2 class="org-hover-gallery__title">Silicon Ethics</h2>
+        <span class="org-hover-gallery__meta">Opinion • 6 min</span>
+      </li>
+      <li class="org-hover-gallery__item">
+        <h2 class="org-hover-gallery__title">Neural Integration</h2>
+        <span class="org-hover-gallery__meta">Science • 3 min</span>
+      </li>
+      <li class="org-hover-gallery__item">
+        <h2 class="org-hover-gallery__title">End of Code</h2>
+        <span class="org-hover-gallery__meta">Tech • 8 min</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- PARALLAX GALLERY ORGANISM -->
+  <section class="org-parallax-gallery">
+    <!-- These images will move vertically at different speeds using GSAP data-speed -->
+    <div class="org-parallax-gallery__item org-parallax-gallery__item--left-top" data-speed="0.8">
+      <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop"
+        alt="Abstract 1" loading="lazy" decoding="async">
+    </div>
+    <div class="org-parallax-gallery__item org-parallax-gallery__item--center" data-speed="1.2">
+      <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=1200&auto=format&fit=crop"
+        alt="Abstract 2" loading="lazy" decoding="async">
+    </div>
+    <div class="org-parallax-gallery__item org-parallax-gallery__item--right-bottom" data-speed="1.5">
+      <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1000&auto=format&fit=crop"
+        alt="Abstract 3" loading="lazy" decoding="async">
+    </div>
+  </section>
+
+  <!-- PHASE 18: STATS COUNTER GRID -->
+  <section class="org-stats" aria-label="Global Impact Statistics">
+    <div class="org-stats__item">
+      <span class="org-stats__number js-counter" data-target="150">0</span>
+      <span class="org-stats__label">Million Readers</span>
+    </div>
+    <div class="org-stats__item">
+      <span class="org-stats__number js-counter" data-target="85">0</span>
+      <span class="org-stats__label">Global Awards</span>
+    </div>
+    <div class="org-stats__item">
+      <span class="org-stats__number js-counter" data-target="400">0</span>
+      <span class="org-stats__label">Tech Partnerships</span>
+    </div>
+    <div class="org-stats__item">
+      <span class="org-stats__number js-counter" data-target="24">0</span>
+      <span class="org-stats__label">Hour Updates</span>
+    </div>
+  </section>
+
+  <!-- BENTO GRID ORGANISM -->
+  <section class="org-bento-grid">
+    <div class="org-bento-grid__cell org-bento-grid__cell--large">
+      <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80" alt="Tech"
+        class="org-bento-grid__image" data-speed="0.8" loading="lazy" decoding="async">
+      <div class="org-bento-grid__content">
+        <span class="org-bento-grid__meta">Breaking</span>
+        <h3 class="org-bento-grid__title">Quantum Computing Reaches Neural Sync Phase</h3>
+      </div>
+    </div>
+    <div class="org-bento-grid__cell">
+      <div class="org-bento-grid__content">
+        <div class="org-bento-grid__data">14</div>
+        <h3 class="org-bento-grid__title">New Species Discovered</h3>
+      </div>
+    </div>
+    <div class="org-bento-grid__cell org-bento-grid__cell--tall">
+      <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=800&q=80" alt="Art"
+        class="org-bento-grid__image" data-speed="0.8" loading="lazy" decoding="async">
+      <div class="org-bento-grid__content">
+        <span class="org-bento-grid__meta">Culture</span>
+        <h3 class="org-bento-grid__title">The Return of Brutalism</h3>
+      </div>
+    </div>
+    <div class="org-bento-grid__cell org-bento-grid__cell--wide">
+      <div class="org-bento-grid__content">
+        <h3 class="org-bento-grid__title">Markets react as AI regulations pass globally.</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- STICKY SCROLL SECTION -->
+  <section class="org-sticky-scroll">
+    <div class="org-sticky-scroll__wrapper">
+      <article class="org-sticky-scroll__panel">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80" alt="Chip"
+          class="org-sticky-scroll__image" loading="lazy" decoding="async">
+        <div class="org-sticky-scroll__content">
+          <span class="org-sticky-scroll__meta">Economy • 3 min read</span>
+          <h3 class="org-sticky-scroll__title">Silicon Shortage Over</h3>
+          <p class="org-sticky-scroll__desc">Global supply chains have finally stabilized, allowing tech manufacturing
+            to resume at full capacity.</p>
+          <a href="article.html" class="org-sticky-scroll__btn" data-magnetic data-intensity="0.4">Read Article</a>
+        </div>
+      </article>
+      <article class="org-sticky-scroll__panel">
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200&q=80" alt="Running"
+          class="org-sticky-scroll__image" loading="lazy" decoding="async">
+        <div class="org-sticky-scroll__content">
+          <span class="org-sticky-scroll__meta">Sports • 5 min read</span>
+          <h3 class="org-sticky-scroll__title">Olympic Records Shattered</h3>
+          <p class="org-sticky-scroll__desc">A new generation of athletes is pushing the limits of human potential in an
+            unprecedented display of skill.</p>
+          <a href="article.html" class="org-sticky-scroll__btn" data-magnetic data-intensity="0.4">Read Article</a>
+        </div>
+      </article>
+      <article class="org-sticky-scroll__panel">
+        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&q=80" alt="Space"
+          class="org-sticky-scroll__image" loading="lazy" decoding="async">
+        <div class="org-sticky-scroll__content">
+          <span class="org-sticky-scroll__meta">Science • 8 min read</span>
+          <h3 class="org-sticky-scroll__title">Mars Colony Reaches Autonomy</h3>
+          <p class="org-sticky-scroll__desc">The first extraterrestrial human settlement declares independence from
+            Earth supply lines.</p>
+          <a href="article.html" class="org-sticky-scroll__btn" data-magnetic data-intensity="0.4">Read Article</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- MARQUEE ORGANISM -->
+  <section class="org-marquee">
+    <div class="org-marquee__content">
+      <h2 class="org-marquee__text">Feel the news. Experience the story. Vanguard tech.</h2>
+      <h2 class="org-marquee__text">Feel the news. Experience the story. Vanguard tech.</h2>
+      <h2 class="org-marquee__text">Feel the news. Experience the story. Vanguard tech.</h2>
+      <h2 class="org-marquee__text">Feel the news. Experience the story. Vanguard tech.</h2>
+    </div>
+  </section>
+
+  <!-- STATS ORGANISM -->
+  <section class="org-stats syx-layout-container">
+    <div class="org-stats__item">
+      <span class="org-stats__number" data-target="150" data-suffix="K">0</span>
+      <span class="org-stats__label">Daily Readers</span>
+    </div>
+    <div class="org-stats__item">
+      <span class="org-stats__number" data-target="99" data-suffix="%">0</span>
+      <span class="org-stats__label">Emotion Accuracy</span>
+    </div>
+    <div class="org-stats__item">
+      <span class="org-stats__number" data-target="6" data-suffix="">0</span>
+      <span class="org-stats__label">Distinct Vibes</span>
+    </div>
+  </section>
+
+  <!-- FEATURED QUOTE ORGANISM -->
+  <section class="org-featured-quote">
+    <div class="org-featured-quote__bg-mark">"</div>
+    <h2 class="org-featured-quote__text">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.
+    </h2>
+    <span class="org-featured-quote__author">— Ut enim ad minim veniam</span>
+  </section>
+
+  <!-- NEWSLETTER ORGANISM -->
+  <section class="org-newsletter">
+    <h3 class="org-newsletter__title">Join the Experience</h3>
+    <p class="org-newsletter__desc">Sign up to receive our latest updates directly to your inbox. No spam, just
+      emotions.</p>
+    <form class="org-newsletter__form" action="#" method="POST" onsubmit="event.preventDefault()">
+      <input type="email" class="org-newsletter__input" placeholder="Enter your email address" required>
+      <button type="submit" class="org-newsletter__btn">Subscribe</button>
+    </form>
+  </section>
+
+  <!-- GLOBAL SITE FOOTER -->
+  <footer class="org-site-footer">
+    <h3 class="org-site-footer__title">The end of the scroll.</h3>
+    <p class="org-site-footer__text">
+      This thematic experience was built using the <a href="https://github.com/syx-design"
+        class="org-site-footer__link">SYX Design System Architecture</a>.
+      <br>Designed & Developed by José Luis Pizarro Feo.
+    </p>
+  </footer>
+
+  <!-- THEME SWITCHER MOLECULE -->
+  <nav class="molecule-emotion-switcher" aria-label="Theme Selector">
+    <button class="molecule-emotion-switcher__btn is-active" data-emotion="joy" aria-label="Activate Joy Theme"
+      title="Joy">😊</button>
+    <button class="molecule-emotion-switcher__btn" data-emotion="sadness" aria-label="Activate Sadness Theme"
+      title="Sadness">😢</button>
+    <button class="molecule-emotion-switcher__btn" data-emotion="anger" aria-label="Activate Anger Theme"
+      title="Anger">😡</button>
+    <button class="molecule-emotion-switcher__btn" data-emotion="fear" aria-label="Activate Fear Theme"
+      title="Fear">😨</button>
+    <button class="molecule-emotion-switcher__btn" data-emotion="surprise" aria-label="Activate Surprise Theme"
+      title="Surprise">😲</button>
+    <button class="molecule-emotion-switcher__btn" data-emotion="disgust" aria-label="Activate Disgust Theme"
+      title="Disgust">🤢</button>
+  </nav>
+
+  <!-- SCRIPTS -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+
+  <!-- Lenis Smooth Scroll -->
+  <script defer src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+
+  <script defer src="js/preloader.js"></script>
+  <script defer src="js/emotions.js"></script>
+  <script defer src="js/three-bg.js"></script>
+  <script defer src="js/magnetic.js"></script>
+
+</body>
+
+</html>

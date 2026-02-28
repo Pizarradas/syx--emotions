@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="joy">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="An immersive article reading experience powered by the SYX Design System and GSAP animations.">
+    <title>SYX Emotions - Article</title>
+    <link rel="stylesheet" href="css/bundle-emotions-article.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display:ital@0;1&family=Montserrat:ital,wght@0,400;0,700;0,900;1,400&family=Oswald:wght@400;700&family=Outfit:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="page-article">
+
+    <!-- EXPERIENTIAL PRELOADER (Phase 14) -->
+    <div class="org-preloader">
+        <h1 class="org-preloader__percent">0%</h1>
+        <p class="org-preloader__text">Loading Vanguard Experience</p>
+    </div>
+
+    <!-- 3D BACKGROUND -->
+    <canvas id="three-canvas"
+        style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; pointer-events: none;"></canvas>
+
+    <!-- GLOBAL SITE HEADER (Phase 16) -->
+    <header class="org-site-header">
+        <a href="index.html" class="org-site-header__logo" aria-label="SYX Home" data-magnetic>
+            SYX<span class="dot">.</span>
+        </a>
+
+        <button class="org-site-header__menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </button>
+
+        <nav class="org-site-header__nav" aria-label="Main Navigation">
+            <a href="index.html" class="org-site-header__link" data-magnetic>Home</a>
+            <a href="#" class="org-site-header__link" data-magnetic>News</a>
+            <a href="#" class="org-site-header__link" data-magnetic>Culture</a>
+            <a href="#" class="org-site-header__link" data-magnetic data-intensity="0.8">Tech</a>
+        </nav>
+    </header>
+
+    <!-- ARTICLE HEADER -->
+    <header class="org-article-header">
+        <div class="org-article-header__container">
+            <!-- Phase 14: Zen Mode Toggle -->
+            <button class="org-zen-toggle" aria-label="Toggle Zen Mode">Zen Mode</button>
+
+            <div class="org-article-header__tag">Architecture Deep Dive</div>
+            <h1 class="org-article-header__title">Lorem Ipsum Dolor Sit Amet</h1>
+            <div class="org-article-header__meta">
+                <span>Designed & Developed by <strong>José Luis Pizarro Feo</strong></span>
+                <span>•</span>
+                <span>February 28, 2026</span>
+                <span>•</span>
+                <span>12 min read</span>
+            </div>
+        </div>
+
+        <figure class="org-article-header__figure">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
+                alt="Article Header Image" fetchpriority="high" decoding="sync">
+        </figure>
+    </header>
+
+    <!-- ARTICLE CONTENT -->
+    <main class="org-article-content">
+        <article class="org-article-content__container">
+            <span class="dropcap">L</span>
+            <p>orem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.</p>
+
+            <p>Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra,
+                est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod
+                gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut
+                ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam.
+                Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem,
+                aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl
+                adipiscing sapien, sed malesuada diam lacus eget erat.</p>
+
+            <h2>The SYX Paradigm</h2>
+
+            <p>Phasellus a est. Phasellus magna. In hac habitasse platea dictumst. Curabitur at lacus ac velit ornare
+                lobortis. Curabitur a felis in nunc fringilla tristique. Morbi mattis ullamcorper velit. Phasellus
+                gravida semper nisi. Nullam vel sem.</p>
+
+            <blockquote>
+                "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante."
+            </blockquote>
+
+            <p>Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi,
+                condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt
+                condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui.</p>
+
+            <h2>Eliminating the Debt</h2>
+
+            <p>Nunc eleifend consequat lorem. Sed aliquet risus a tortor. Integer id quam. Morbi mi. Quisque nisl felis,
+                venenatis tristique, dignissim in, ultrices sit amet, augue. Proin sodales libero eget ante. Nulla quam.
+                Aenean laoreet. Vestibulum nisi lectus, commodo ac, facilisis ac, ultricies eu, pede.</p>
+        </article>
+    </main>
+
+    <!-- READING PROGRESS RING ORGANISM -->
+    <div class="org-progress-ring">
+        <svg class="org-progress-ring__svg" viewBox="0 0 36 36">
+            <path class="org-progress-ring__circle-bg"
+                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+            <path class="org-progress-ring__circle-progress"
+                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+        </svg>
+        <span class="org-progress-ring__percent">0%</span>
+    </div>
+
+    <!-- GLOBAL SITE FOOTER -->
+    <footer class="org-site-footer">
+        <h3 class="org-site-footer__title">The end of the story.</h3>
+        <p class="org-site-footer__text">
+            This thematic experience was built using the <a href="https://github.com/syx-design"
+                class="org-site-footer__link">SYX Design System Architecture</a>.
+            <br>Designed & Developed by José Luis Pizarro Feo.
+        </p>
+    </footer>
+
+    <!-- THEME SWITCHER MOLECULE -->
+    <nav class="molecule-emotion-switcher" aria-label="Theme Selector">
+        <button class="molecule-emotion-switcher__btn is-active" data-emotion="joy" aria-label="Activate Joy Theme"
+            title="Joy">😊</button>
+        <button class="molecule-emotion-switcher__btn" data-emotion="sadness" aria-label="Activate Sadness Theme"
+            title="Sadness">😢</button>
+        <button class="molecule-emotion-switcher__btn" data-emotion="anger" aria-label="Activate Anger Theme"
+            title="Anger">😡</button>
+        <button class="molecule-emotion-switcher__btn" data-emotion="fear" aria-label="Activate Fear Theme"
+            title="Fear">😨</button>
+        <button class="molecule-emotion-switcher__btn" data-emotion="surprise" aria-label="Activate Surprise Theme"
+            title="Surprise">😲</button>
+        <button class="molecule-emotion-switcher__btn" data-emotion="disgust" aria-label="Activate Disgust Theme"
+            title="Disgust">🤢</button>
+    </nav>
+
+    <!-- SCRIPTS -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script defer src="js/preloader.js"></script>
+    <script defer src="js/emotions.js"></script>
+    <script defer src="js/three-bg.js"></script>
+    <script defer src="js/glow-tracker.js"></script>
+
+</body>
+
+</html>
