@@ -1,0 +1,103 @@
+// ================================================
+// ORGANISM: TYPOGRAPHY DIVIDER
+// ================================================
+
+@use '../../../abstracts/index' as *;
+
+@mixin org-typography-divider {
+    @layer syx.organisms {
+        .org-typography-divider {
+            @include relative();
+            width: 100vw;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: calc(var(--base-measure) * 15) 5%;
+            margin: calc(var(--base-measure) * 10) 0;
+            background-color: var(--semantic-color-bg-primary);
+            color: var(--semantic-color-text-primary);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            z-index: 10;
+            border-top: 1px solid var(--semantic-color-border-subtle);
+            border-bottom: 1px solid var(--semantic-color-border-subtle);
+
+            // Sub-theme color inversions
+            [data-theme="sadness"] & {
+                background-color: var(--semantic-color-bg-secondary);
+                color: #000;
+            }
+
+            [data-theme="joy"] & {
+                background-image: linear-gradient(135deg, var(--semantic-color-primary) 0%, var(--semantic-color-bg-primary) 100%);
+            }
+
+            [data-theme="fear"] & {
+                background-color: #000;
+                color: var(--semantic-color-text-primary);
+            }
+
+            [data-theme="anger"] & {
+                border-top: 4px solid var(--semantic-color-primary);
+                border-bottom: 4px solid var(--semantic-color-primary);
+            }
+
+            // The Text Container
+            &__content {
+                max-width: 1200px;
+                position: relative;
+                z-index: 2;
+            }
+
+            &__eyebrow {
+                display: block;
+                font-family: var(--semantic-font-family-secondary);
+                font-size: var(--semantic-font-size-md);
+                text-transform: uppercase;
+                letter-spacing: 0.2em;
+                color: var(--semantic-color-primary);
+                margin-bottom: calc(var(--base-measure) * 4);
+
+                [data-theme="fear"] & {
+                    color: red;
+                }
+            }
+
+            &__title {
+                margin: 0;
+                font-family: var(--semantic-font-family-primary-bold);
+                font-size: clamp(3rem, 8vw, 10rem); // Huge fluid typography
+                line-height: 0.9;
+                letter-spacing: -0.02em;
+
+                // Outline stroke effect for giant text
+                &--outline {
+                    color: transparent;
+                    -webkit-text-stroke: 2px var(--semantic-color-text-primary);
+
+                    [data-theme="sadness"] & {
+                        -webkit-text-stroke: 2px rgba(0, 0, 0, 0.5);
+                    }
+                }
+            }
+
+            // A large background abstract shape just for texture
+            &__bg-graphic {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 50vw;
+                font-family: var(--semantic-font-family-primary-bold);
+                color: var(--semantic-color-border-subtle);
+                opacity: 0.1;
+                pointer-events: none;
+                z-index: 1;
+                white-space: nowrap;
+                user-select: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+// ================================================
+// PAGE: ARTICLE
+// ================================================
+
+@use '../../../abstracts/index' as *;
+
+@mixin page-article {
+    @layer syx.pages {
+        .page-article {
+            background-color: var(--semantic-color-bg-primary);
+            min-height: 100vh;
+            transition: var(--theme-transition);
+        }
+    }
+}

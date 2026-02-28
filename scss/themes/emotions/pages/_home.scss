@@ -1,0 +1,15 @@
+// ================================================
+// PAGE: HOME
+// ================================================
+
+@use '../../../abstracts/index' as *;
+
+@mixin page-home {
+    @layer syx.pages {
+        .page-home {
+            background-color: var(--semantic-color-bg-primary);
+            min-height: 100vh;
+            transition: var(--theme-transition);
+        }
+    }
+}

@@ -1,0 +1,44 @@
+// ================================================
+// ORGANISM: NEWS GRID
+// ================================================
+
+@use '../../../abstracts/index' as *;
+
+@mixin org-news-grid {
+    @layer syx.organisms {
+        .org-news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: calc(var(--base-measure) * 4);
+            @include padding(calc(var(--base-measure) * 8) 0);
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 90%;
+
+            @media (min-width: 992px) {
+
+                // Asymmetric visual grid for larger screens
+                .molecule-news-card:nth-child(4n + 1) {
+                    grid-column: span 2;
+                    flex-direction: row;
+
+                    .molecule-news-card__figure {
+                        width: 50%;
+                        height: 100%;
+                        aspect-ratio: auto;
+                    }
+
+                    .molecule-news-card__body {
+                        width: 50%;
+                        justify-content: center;
+                        @include padding(calc(var(--base-measure) * 6));
+                    }
+
+                    .molecule-news-card__title {
+                        font-size: 2rem;
+                    }
+                }
+            }
+        }
+    }
+}

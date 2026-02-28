@@ -1,0 +1,87 @@
+// ================================================
+// ORGANISM: READING PROGRESS RING
+// ================================================
+
+@use '../../../abstracts/index' as *;
+
+@mixin org-progress-ring {
+    @layer syx.organisms {
+        .org-progress-ring {
+            position: fixed;
+            bottom: calc(var(--base-measure) * 4);
+            right: calc(var(--base-measure) * 4);
+            width: 60px;
+            height: 60px;
+            z-index: 9999;
+            pointer-events: none; // pure visual indicator
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            mix-blend-mode: difference; // Ensures visibility on any background
+
+            @media (max-width: 768px) {
+                bottom: calc(var(--base-measure) * 2);
+                right: calc(var(--base-measure) * 2);
+                width: 45px;
+                height: 45px;
+            }
+
+            [data-theme="sadness"] & {
+                mix-blend-mode: normal;
+                opacity: 0.5;
+            }
+        }
+
+        .org-progress-ring__svg {
+            transform: rotate(-90deg); // Start from top
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+        }
+
+        .org-progress-ring__circle-bg {
+            fill: none;
+            stroke: rgba(255, 255, 255, 0.2); // Default subtle path
+            stroke-width: 2;
+
+            [data-theme="sadness"] & {
+                stroke: var(--semantic-color-border-default);
+            }
+
+            [data-theme="anger"] & {
+                stroke: transparent;
+            }
+        }
+
+        .org-progress-ring__circle-progress {
+            fill: none;
+            stroke: #ffffff; // White high contrast by default (via difference mode)
+            stroke-width: 4;
+            stroke-linecap: round;
+            stroke-dasharray: 100; // Will be set in JS
+            stroke-dashoffset: 100; // Start empty
+
+            [data-theme="anger"] & {
+                stroke: var(--semantic-color-primary); // Bloody red progress
+                stroke-linecap: square;
+            }
+
+            [data-theme="joy"] & {
+                stroke-width: 6;
+                stroke: var(--semantic-color-primary);
+            }
+        }
+
+        .org-progress-ring__percent {
+            position: absolute;
+            font-family: var(--semantic-font-family-primary);
+            font-size: var(--semantic-font-size-xs);
+            font-weight: 900;
+            color: #ffffff;
+
+            [data-theme="fear"] & {
+                display: none; // Hides the number to build unease
+            }
+        }
+    }
+}

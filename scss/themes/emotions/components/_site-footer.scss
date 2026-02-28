@@ -1,0 +1,68 @@
+// ================================================
+// ORGANISM: SITE FOOTER
+// ================================================
+
+@use '../../../abstracts/index' as *;
+
+@mixin org-site-footer {
+    @layer syx.organisms {
+        .org-site-footer {
+            position: relative;
+            z-index: 10;
+            margin-top: calc(var(--base-measure) * 4);
+            padding: calc(var(--base-measure) * 3) var(--base-measure);
+            background-color: var(--semantic-color-bg-secondary);
+            color: var(--semantic-color-text-primary);
+            text-align: center;
+            transition: background-color 0.4s ease, color 0.4s ease;
+            font-family: var(--semantic-font-family-secondary);
+
+            [data-theme="anger"] & {
+                border-top: 8px solid var(--semantic-color-primary);
+            }
+
+            [data-theme="sadness"] & {
+                background-color: #000;
+            }
+
+            [data-theme="disgust"] & {
+                border-top: 2px dashed var(--semantic-color-text-secondary);
+            }
+        }
+
+        .org-site-footer__title {
+            font-family: var(--semantic-font-family-primary);
+            font-size: var(--semantic-font-size-xl);
+            margin-bottom: var(--base-measure);
+            color: var(--semantic-color-primary);
+
+            [data-theme="fear"] & {
+                opacity: 0.2;
+                text-transform: lowercase;
+            }
+        }
+
+        .org-site-footer__text {
+            color: var(--semantic-color-text-secondary);
+            font-size: var(--semantic-font-size-sm);
+        }
+
+        .org-site-footer__link {
+            color: var(--semantic-color-primary);
+            text-decoration: underline;
+
+            &:hover {
+                color: var(--semantic-color-text-primary);
+
+                [data-theme="joy"] & {
+                    text-decoration: none;
+                }
+
+                [data-theme="surprise"] & {
+                    font-style: italic;
+                    letter-spacing: 2px;
+                }
+            }
+        }
+    }
+}

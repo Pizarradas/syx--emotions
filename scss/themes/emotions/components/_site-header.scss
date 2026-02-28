@@ -1,0 +1,215 @@
+// ================================================
+// ORGANISM: SITE HEADER (MOBILE-FIRST REVAMP)
+// ================================================
+
+@use '../../../abstracts/index' as *;
+
+@mixin org-site-header {
+    @layer syx.organisms {
+        .org-site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            padding: calc(var(--base-measure) * 1.5) var(--base-measure);
+            transition: background-color 0.4s ease, padding 0.4s ease, transform 0.4s ease, backdrop-filter 0.4s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            // Glassmorphism base
+            background-color: rgba(var(--semantic-color-bg-primary), 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(var(--semantic-color-text-primary), 0.05);
+
+            @media (min-width: 1024px) {
+                padding: calc(var(--base-measure) * 2) calc(var(--base-measure) * 4);
+
+                // Hide header when scrolling down, show on up (handled via JS/GSAP later, but default setup here)
+                &.is-hidden {
+                    transform: translateY(-100%);
+                }
+            }
+
+            // Emotion Specifics
+            [data-theme="fear"] & {
+                background-color: transparent;
+                backdrop-filter: none;
+                background: linear-gradient(to bottom, rgba(5, 5, 5, 0.9) 0%, transparent 100%);
+                border-bottom: none;
+            }
+
+            [data-theme="anger"] & {
+                background-color: var(--semantic-color-primary);
+                backdrop-filter: none;
+                border-bottom: 4px solid var(--semantic-color-text-primary);
+            }
+        }
+
+        .org-site-header__logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 900;
+            color: var(--semantic-color-text-primary);
+            text-decoration: none;
+            position: relative;
+            z-index: 10;
+            letter-spacing: -0.05em;
+            transition: transform 0.3s ease, color 0.4s ease;
+
+            @media (min-width: 1024px) {
+                font-size: 2.25rem;
+            }
+
+            .dot {
+                color: var(--semantic-color-primary);
+                transition: color 0.4s ease;
+            }
+
+            // Hover state
+            &:hover {
+                color: var(--semantic-color-primary);
+
+                .dot {
+                    color: var(--semantic-color-text-primary);
+                }
+            }
+
+            [data-theme="surprise"] & {
+                font-style: italic;
+                letter-spacing: -2px;
+                transform: rotate(-3deg);
+            }
+
+            [data-theme="anger"] & {
+                color: var(--semantic-color-bg-primary); // Inverse to stand out on red bg
+
+                .dot {
+                    color: var(--semantic-color-text-primary);
+                }
+
+                &:hover {
+                    color: var(--semantic-color-text-primary);
+                }
+            }
+        }
+
+        // Hamburger Button (Mobile Only)
+        .org-site-header__menu-toggle {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 20px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 10;
+
+            .line {
+                width: 100%;
+                height: 2px;
+                background-color: var(--semantic-color-text-primary);
+                transition: all 0.3s linear;
+                transform-origin: 1px;
+            }
+
+            // Toggle active state
+            &.is-active {
+                .line:nth-child(1) {
+                    transform: rotate(45deg);
+                }
+
+                .line:nth-child(2) {
+                    opacity: 0;
+                    transform: translateX(20px);
+                }
+
+                .line:nth-child(3) {
+                    transform: rotate(-45deg);
+                }
+            }
+
+            @media (min-width: 1024px) {
+                display: none; // Hide on desktop
+            }
+        }
+
+        // Navigation Menu
+        .org-site-header__nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100vh;
+            width: 100vw;
+            background-color: var(--semantic-color-bg-primary);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: calc(var(--base-measure) * 4);
+            transform: translateX(100%); // Hidden to the right by default
+            transition: transform 0.6s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+            z-index: 9; // Below logo and hamburger
+
+            &.is-open {
+                transform: translateX(0);
+            }
+
+            @media (min-width: 1024px) {
+                position: static;
+                height: auto;
+                width: auto;
+                background-color: transparent;
+                flex-direction: row;
+                transform: none;
+                transition: none;
+                gap: calc(var(--base-measure) * 3);
+            }
+        }
+
+        .org-site-header__link {
+            font-family: var(--semantic-font-family-primary); // Using primary for bold impact on mobile menu
+            font-size: var(--semantic-font-size-3xl);
+            font-weight: 700;
+            color: var(--semantic-color-text-primary);
+            text-decoration: none;
+            text-transform: uppercase;
+            overflow: hidden;
+
+            @media (min-width: 1024px) {
+                font-family: var(--semantic-font-family-secondary);
+                font-size: var(--semantic-font-size-md);
+                text-transform: none;
+                font-weight: 700;
+                position: relative;
+            }
+
+            // Magnetic UI data-magnetic targeting will go here in JS
+
+            // Hover states (Desktop focused)
+            @media (min-width: 1024px) {
+                &::before {
+                    content: '';
+                    position: absolute;
+                    bottom: -5px;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
+                    background-color: var(--semantic-color-primary);
+                    transform: scaleX(0);
+                    transform-origin: right;
+                    transition: transform 0.4s ease;
+                }
+
+                &:hover::before {
+                    transform: scaleX(1);
+                    transform-origin: left;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,118 @@
+// ================================================
+// EMOTIONS THEME SETUP
+// ================================================
+
+// CORE
+@use '../../abstracts/index' as *;
+@use '../../base/index' as *;
+@use '../../layout/grids/grid' as *;
+@use '../../atoms/index' as *;
+@use '../../molecules/index' as *;
+@use '../_base/universal' as *;
+@use 'theme' as *;
+
+// CUSTOM COMPONENTS (Molecules & Organisms specific to this demo)
+@use 'components/news-card' as *;
+@use 'components/emotion-switcher' as *;
+@use 'components/news-hero' as *;
+@use 'components/news-grid' as *;
+@use 'components/article-header' as *;
+@use 'components/article-content' as *;
+@use 'components/progress-ring' as *;
+@use 'components/preloader' as *;
+@use 'components/zen-mode' as *;
+@use 'components/site-header' as *;
+@use 'components/site-footer' as *;
+@use 'components/newsletter' as *;
+@use 'components/featured-quote' as *;
+@use 'components/marquee' as *;
+@use 'components/stats' as *;
+@use 'components/bento-grid' as *;
+@use 'components/sticky-scroll' as *;
+@use 'components/parallax-gallery' as *;
+@use 'components/text-reveal' as *;
+@use 'components/hover-gallery' as *;
+@use 'components/masonry-grid' as *;
+@use 'components/typography-divider' as *;
+
+// PAGES
+@use 'pages/home' as *;
+@use 'pages/article' as *;
+
+// :ROOT & THEME EXPORTS
+@include universal-values();
+
+// ================================================
+// A11y GLOBAL FOCUS
+// ================================================
+:focus-visible {
+    outline: 2px solid var(--semantic-color-primary);
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+
+[data-theme="anger"] :focus-visible {
+    outline-color: var(--semantic-color-text-primary);
+}
+
+@include theme-emotions(); // From _theme.scss
+
+// RESET & GLOBALS
+@include resets-global(emotions);
+
+body {
+    overflow-x: hidden; // Critical to prevent horizontal scroll from GSAP or Marquee
+}
+
+// SYX GLOBALS
+@include layout-grid(emotions);
+@include helper-icons();
+@include helper-font-sizes(emotions);
+@include helper-dimensions(emotions);
+@include helper-fonts(emotions);
+@include helper-backgrounds(emotions);
+
+// SYX ATOMS (Using essential atoms)
+@include atom-btn(emotions);
+@include atom-icon(emotions);
+@include atom-title(emotions);
+@include atom-txt(emotions);
+@include atom-label(emotions);
+@include atom-link(emotions);
+
+// COMPONENTS BUNDLER MIXIN
+@mixin bundle-components($context) {
+    // Common components across all contexts
+    @include mol-emotion-switcher();
+
+    @if $context =='home' {
+        @include org-preloader(); // Phase 14
+        @include org-site-header();
+        @include org-news-hero();
+        @include org-bento-grid(); // New Phase 11
+        @include org-sticky-scroll(); // New Phase 11
+        @include org-parallax-gallery(); // New Phase 12
+        @include org-news-grid();
+        @include mol-news-card();
+        @include org-featured-quote();
+        @include org-marquee(); // Phase 18
+        @include org-text-reveal(); // Phase 18
+        @include org-hover-gallery(); // Phase 18
+        @include org-typography-divider(); // Phase 22
+        @include org-masonry-grid(); // Phase 21
+        @include org-stats();
+        @include org-newsletter();
+        @include org-site-footer();
+        @include page-home();
+    }
+
+    @if $context =='article' {
+        @include org-site-header();
+        @include org-zen-mode(); // Phase 14
+        @include org-article-header();
+        @include org-article-content();
+        @include org-progress-ring();
+        @include org-site-footer();
+        @include page-article();
+    }
+}

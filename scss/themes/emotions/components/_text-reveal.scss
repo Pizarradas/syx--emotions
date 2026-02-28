@@ -1,0 +1,53 @@
+// ================================================
+// ORGANISM: TEXT REVEAL SCRUB
+// ================================================
+
+@use '../../../abstracts/index' as *;
+
+@mixin org-text-reveal {
+    @layer syx.organisms {
+        .org-text-reveal {
+            @include padding(calc(var(--base-measure) * 20) 5%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--semantic-color-bg-primary);
+            min-height: 80vh;
+
+            &__container {
+                max-width: 1200px;
+                text-align: center;
+            }
+
+            &__text {
+                font-family: var(--semantic-font-family-primary-bold);
+                font-size: clamp(2rem, 5vw, 4.5rem);
+                line-height: 1.1;
+                letter-spacing: -0.02em;
+                color: var(--semantic-color-text-primary);
+                margin: 0;
+
+                // Word styling for GSAP split text
+                .word {
+                    display: inline-block;
+                    opacity: 0.15; // Starting state before scroll
+                    transition: opacity 0.1s linear; // Smooth scrub tracking
+                    margin-right: 0.2em;
+
+                    // Specific highlight color for certain themes
+                    &[data-highlight="true"] {
+                        color: var(--semantic-color-primary);
+                    }
+                }
+
+                [data-theme="anger"] & {
+                    text-transform: uppercase;
+                }
+
+                [data-theme="fear"] & {
+                    font-weight: 400; // Thinner for a creepy vibe
+                }
+            }
+        }
+    }
+}

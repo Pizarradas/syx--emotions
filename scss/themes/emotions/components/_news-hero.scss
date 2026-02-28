@@ -1,0 +1,210 @@
+// ================================================
+// ORGANISM: NEWS HERO
+// ================================================
+
+@use '../../../abstracts/index' as *;
+
+@mixin org-news-hero {
+    @layer syx.organisms {
+        .org-news-hero {
+            @include relative();
+            width: 100%;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            background-color: var(--semantic-color-bg-primary);
+            overflow: hidden;
+            @include padding(calc(var(--base-measure) * 12) 5%);
+            transition: var(--theme-transition);
+            z-index: 1;
+
+            &__bg {
+                @include absolute($top: 0, $right: 0, $bottom: 0, $left: 0);
+                z-index: -1;
+                opacity: 0.15;
+                transition: opacity 0.8s ease;
+
+                &::after {
+                    content: "";
+                    @include absolute($top: 0, $right: 0, $bottom: 0, $left: 0);
+                    background: linear-gradient(to bottom, transparent, var(--semantic-color-bg-primary));
+                }
+
+                img {
+                    @include size(100%);
+                    object-fit: cover;
+                    filter: grayscale(100%) contrast(1.2);
+                }
+            }
+
+            &__layout {
+                @include relative();
+                z-index: 2;
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: calc(var(--base-measure) * 10);
+                width: 100%;
+                max-width: 1600px;
+                margin: 0 auto;
+
+                @media (min-width: 1024px) {
+                    grid-template-columns: 1.5fr 1fr; // Left larger, right smaller
+                    align-items: center;
+                }
+            }
+
+            &__content {
+                @include relative();
+                max-width: 900px;
+            }
+
+            &__badge {
+                display: inline-block;
+                @include padding(calc(var(--base-measure)) calc(var(--base-measure) * 3));
+                background-color: var(--semantic-color-primary);
+                color: var(--semantic-color-text-inverse);
+                font-family: var(--semantic-font-family-primary-bold);
+                border-radius: var(--semantic-border-radius-sm);
+                font-size: 0.875rem;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                margin-bottom: calc(var(--base-measure) * 4);
+            }
+
+            &__title {
+                font-family: var(--semantic-font-family-primary-bold);
+                font-size: clamp(3rem, 8vw, 6rem);
+                line-height: 1.1;
+                color: var(--semantic-color-text-primary);
+                margin: 0 0 calc(var(--base-measure) * 4) 0;
+                letter-spacing: -0.02em;
+            }
+
+            &__excerpt {
+                font-family: var(--semantic-font-family-primary);
+                font-size: clamp(1.25rem, 3vw, 1.75rem);
+                line-height: 1.6;
+                color: var(--semantic-color-text-secondary);
+                max-width: 800px;
+                margin: 0 0 calc(var(--base-measure) * 6) 0;
+            }
+
+            &__meta {
+                display: flex;
+                align-items: center;
+                gap: calc(var(--base-measure) * 4);
+                font-family: var(--semantic-font-family-primary);
+                font-size: 1rem;
+                color: var(--semantic-color-text-tertiary);
+                margin-bottom: calc(var(--base-measure) * 8);
+
+                .author {
+                    font-weight: bold;
+                    color: var(--semantic-color-text-primary);
+                }
+            }
+
+            // Phase 14: Giant Magnetic CTA
+            .mol-cta--giant {
+                display: inline-block;
+                padding: calc(var(--base-measure) * 3) calc(var(--base-measure) * 6);
+                font-family: var(--semantic-font-family-primary-bold);
+                font-size: var(--semantic-font-size-2xl);
+                text-transform: uppercase;
+                text-decoration: none;
+                background-color: var(--semantic-color-primary);
+                color: var(--semantic-color-text-inverse);
+                border-radius: 100px;
+                cursor: pointer;
+                transition: transform 0.2s ease, background-color 0.4s ease;
+
+                [data-theme="sadness"] & {
+                    border-radius: 10px;
+                }
+
+                [data-theme="anger"] & {
+                    border-radius: 0;
+                }
+
+                &:hover {
+                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                }
+            }
+
+            // Phase 15: Editor's Pick Floating Subfeature
+            &__subfeature {
+                display: none; // Hide on smaller screens
+
+                @media (min-width: 1024px) {
+                    display: flex;
+                    justify-content: flex-end;
+                    padding-right: 5%;
+                }
+
+                .mol-hero-card {
+                    @include relative();
+                    width: 100%;
+                    max-width: 450px;
+                    border-radius: var(--semantic-border-radius);
+                    overflow: hidden;
+                    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+                    background-color: var(--semantic-color-bg-primary);
+                    transition: transform 0.4s ease, border-radius 0.4s ease;
+
+                    [data-theme="sadness"] & {
+                        border-radius: 4px;
+                    }
+
+                    [data-theme="joy"] & {
+                        border-radius: 40px;
+                    }
+
+                    [data-theme="anger"] & {
+                        border-radius: 0;
+                    }
+
+                    &__img-wrapper {
+                        width: 100%;
+                        height: 350px;
+                        overflow: hidden;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            transition: transform 0.6s ease;
+                        }
+                    }
+
+                    &:hover img {
+                        transform: scale(1.05);
+                    }
+
+                    &__caption {
+                        padding: calc(var(--base-measure) * 4);
+                        border-top: 1px solid var(--semantic-color-border-subtle);
+
+                        .mol-hero-card__tag {
+                            display: block;
+                            font-family: var(--semantic-font-family-secondary);
+                            font-size: 0.75rem;
+                            text-transform: uppercase;
+                            color: var(--semantic-color-primary);
+                            margin-bottom: calc(var(--base-measure) * 2);
+                            font-weight: 700;
+                            letter-spacing: 0.1em;
+                        }
+
+                        strong {
+                            font-family: var(--semantic-font-family-primary);
+                            font-size: 1.25rem;
+                            line-height: 1.4;
+                            color: var(--semantic-color-text-primary);
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

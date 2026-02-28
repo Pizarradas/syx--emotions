@@ -1,0 +1,47 @@
+// ================================================
+// MOLECULE: EMOTION SWITCHER
+// ================================================
+
+@use '../../../abstracts/index' as *;
+
+@mixin mol-emotion-switcher {
+    @layer syx.molecules {
+        .molecule-emotion-switcher {
+            @include fixed($bottom: var(--base-measure), $left: 50%);
+            transform: translateX(-50%);
+            display: inline-flex;
+            background-color: var(--semantic-color-bg-tertiary);
+            border: 1px solid var(--semantic-color-border-subtle);
+            border-radius: var(--semantic-border-radius-circle);
+            @include padding(calc(var(--base-measure) * 0.5));
+            gap: calc(var(--base-measure) * 0.5);
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            transition: var(--theme-transition);
+
+            &__btn {
+                @include size(40px);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: var(--semantic-border-radius-circle);
+                border: none;
+                background: transparent;
+                cursor: pointer;
+                font-size: 1.2rem;
+                transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
+
+                &:hover {
+                    transform: translateY(-4px);
+                    background-color: var(--semantic-color-bg-secondary);
+                }
+
+                &.is-active {
+                    background-color: var(--semantic-color-primary);
+                    color: var(--semantic-color-text-inverse);
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+                }
+            }
+        }
+    }
+}

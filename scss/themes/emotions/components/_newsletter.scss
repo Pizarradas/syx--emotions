@@ -1,0 +1,135 @@
+// ================================================
+// ORGANISM: NEWSLETTER
+// ================================================
+
+@use '../../../abstracts/index' as *;
+
+@mixin org-newsletter {
+    @layer syx.organisms {
+        .org-newsletter {
+            position: relative;
+            margin: calc(var(--base-measure) * 8) auto calc(var(--base-measure) * 12) auto; // Detach from footer
+            padding: calc(var(--base-measure) * 4);
+            max-width: 800px;
+            background-color: var(--semantic-color-bg-secondary);
+            border-radius: var(--semantic-border-radius);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: background-color 0.4s ease, border-radius 0.4s ease, box-shadow 0.4s ease;
+            overflow: hidden;
+
+            [data-theme="joy"] & {
+                background: linear-gradient(135deg, var(--semantic-color-bg-secondary) 0%, rgba(255, 215, 0, 0.1) 100%);
+            }
+
+            [data-theme="sadness"] & {
+                box-shadow: none;
+                border: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            [data-theme="anger"] & {
+                border-left: 10px solid var(--semantic-color-primary);
+                border-radius: 0; // Brutalist sharp edges
+            }
+
+            [data-theme="disgust"] & {
+                border-radius: 40px 0 40px 0; // Uneven mushy blob
+            }
+        }
+
+        .org-newsletter__title {
+            font-family: var(--semantic-font-family-primary);
+            font-size: var(--semantic-font-size-2xl);
+            color: var(--semantic-color-text-primary);
+            margin-bottom: var(--base-measure);
+
+            [data-theme="fear"] & {
+                font-weight: 400;
+                font-style: italic;
+            }
+        }
+
+        .org-newsletter__desc {
+            font-family: var(--semantic-font-family-secondary);
+            font-size: var(--semantic-font-size-md);
+            color: var(--semantic-color-text-secondary);
+            margin-bottom: calc(var(--base-measure) * 2);
+        }
+
+        .org-newsletter__form {
+            display: flex;
+            flex-direction: column;
+            gap: var(--base-measure);
+            max-width: 500px;
+            margin: 0 auto;
+
+            @media (min-width: 600px) {
+                flex-direction: row;
+            }
+        }
+
+        .org-newsletter__input {
+            flex: 1;
+            padding: calc(var(--base-measure) * 1.5);
+            font-family: var(--semantic-font-family-secondary);
+            font-size: var(--semantic-font-size-md);
+            background-color: var(--semantic-color-bg-primary);
+            color: var(--semantic-color-text-primary);
+            border: 1px solid var(--semantic-color-text-secondary);
+            border-radius: var(--semantic-border-radius);
+            transition: border-color 0.3s ease, background-color 0.3s ease, border-radius 0.4s ease;
+
+            &:focus {
+                outline: none;
+                border-color: var(--semantic-color-primary);
+            }
+
+            [data-theme="anger"] & {
+                border-radius: 0;
+            }
+
+            [data-theme="joy"] & {
+                border-radius: 50px;
+            }
+        }
+
+        .org-newsletter__btn {
+            // Re-uses some atom rules implicitly through semantic inheritance
+            background-color: var(--semantic-color-primary);
+            color: var(--semantic-color-bg-primary);
+            padding: calc(var(--base-measure) * 1.5) calc(var(--base-measure) * 3);
+            border: none;
+            font-family: var(--semantic-font-family-secondary);
+            font-weight: 700;
+            font-size: var(--semantic-font-size-md);
+            border-radius: var(--semantic-border-radius);
+            cursor: pointer;
+            transition: transform 0.2s ease, filter 0.2s ease, border-radius 0.4s ease;
+
+            &:hover {
+                transform: translateY(-2px);
+                filter: brightness(1.1);
+
+                [data-theme="fear"] & {
+                    transform: translateY(2px);
+                    filter: brightness(0.8);
+                }
+            }
+
+            [data-theme="anger"] & {
+                border-radius: 0;
+                text-transform: uppercase;
+            }
+
+            [data-theme="joy"] & {
+                border-radius: 50px;
+            }
+
+            [data-theme="disgust"] & {
+                background-color: transparent;
+                border: 2px solid var(--semantic-color-primary);
+                color: var(--semantic-color-primary);
+            }
+        }
+    }
+}

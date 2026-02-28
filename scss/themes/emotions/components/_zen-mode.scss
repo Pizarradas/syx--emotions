@@ -1,0 +1,86 @@
+// ================================================
+// ORGANISM: ZEN MODE (ARTICLE FOCUS)
+// ================================================
+
+@use '../../../abstracts/index' as *;
+
+@mixin org-zen-mode {
+    @layer syx.organisms {
+
+        // Toggle button injected into the article header
+        .org-zen-toggle {
+            position: fixed;
+            top: calc(var(--base-measure) * 3);
+            right: calc(var(--base-measure) * 3);
+            z-index: 10000; // Above header
+            background: none;
+            border: 1px solid rgba(var(--semantic-color-text-primary), 0.2);
+            color: var(--semantic-color-text-primary);
+            padding: calc(var(--base-measure) * 1) calc(var(--base-measure) * 2);
+            font-family: var(--semantic-font-family-secondary);
+            font-weight: 700;
+            border-radius: 30px;
+            cursor: pointer;
+            backdrop-filter: blur(4px);
+            transition: all 0.3s ease;
+
+            &:hover {
+                background: var(--semantic-color-text-primary);
+                color: var(--semantic-color-bg-primary);
+            }
+        }
+
+        // When the body has the .is-zen-mode class
+        body.is-zen-mode {
+
+            // Hide distractions
+            .org-site-header,
+            .molecule-emotion-switcher,
+            .org-progress-ring,
+            .ambient-cursor-glow,
+            .org-site-footer {
+                opacity: 0 !important;
+                pointer-events: none !important;
+                transition: opacity 0.5s ease;
+            }
+
+            // Darken the WebGL background severely via a scrim
+            &::before {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background-color: rgba(var(--semantic-color-bg-primary), 0.95);
+                z-index: -1;
+                transition: background-color 0.8s ease;
+            }
+
+            // Center the article content
+            .org-article-content__container {
+                max-width: 700px;
+                margin: 0 auto;
+                text-align: left;
+                padding-top: 15vh; // Push down for comfortable reading position
+                transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+            }
+
+            .org-article-header {
+                max-width: 700px;
+                margin: 0 auto;
+                text-align: left; // Re-align to match the text
+                min-height: auto; // Remove the full vh
+                padding-top: 20vh;
+                padding-bottom: 5vh;
+                transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+            }
+        }
+
+        // Default transitions for smooth entry/exit of Zen Mode
+        .org-article-content__container,
+        .org-article-header {
+            transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+    }
+}

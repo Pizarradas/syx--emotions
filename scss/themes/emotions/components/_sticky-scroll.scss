@@ -1,0 +1,183 @@
+// ================================================
+// ORGANISM: STICKY SCROLL SECTION
+// ================================================
+
+@use '../../../abstracts/index' as *;
+
+@mixin org-sticky-scroll {
+    @layer syx.organisms {
+
+        // The container that gets Pinned by GSAP
+        .org-sticky-scroll {
+            width: 100vw;
+            height: 100vh; // Needs to take up the full viewport when pinned
+            max-width: 100vw;
+            margin-left: calc(-50vw + 50%); // Full bleed
+            overflow: hidden; // Hide the horizontal overflow
+            background-color: var(--semantic-color-bg-primary);
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin-bottom: calc(var(--base-measure) * 10);
+
+            [data-theme="sadness"] & {
+                background-color: transparent;
+                border-top: 1px solid var(--semantic-color-border-subtle);
+                border-bottom: 1px solid var(--semantic-color-border-subtle);
+            }
+
+            [data-theme="anger"] & {
+                background-color: var(--semantic-color-primary); // Shock color
+            }
+        }
+
+        // The wrapper that moves horizontally relative to the pinned container
+        .org-sticky-scroll__wrapper {
+            display: flex;
+            gap: calc(var(--base-measure) * 8);
+            padding: 0 10vw; // Start offset
+            height: 60vh;
+            align-items: center;
+        }
+
+        // Individual panels within the horizontal scroll
+        .org-sticky-scroll__panel {
+            width: 70vw; // Wide panels
+            height: 100%;
+            flex-shrink: 0; // Prevent shrinking in flex
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--semantic-border-radius);
+            overflow: hidden;
+
+            @media (min-width: 1024px) {
+                width: 50vw;
+            }
+
+            [data-theme="joy"] & {
+                border-radius: 40px;
+            }
+
+            [data-theme="anger"] & {
+                border-radius: 0; // Boxy brutality
+            }
+
+            [data-theme="fear"] & {
+                border: 1px solid var(--semantic-color-border-subtle);
+            }
+        }
+
+        .org-sticky-scroll__image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+
+            [data-theme="sadness"] & {
+                filter: grayscale(100%);
+                opacity: 0.6;
+            }
+
+            [data-theme="anger"] & {
+                filter: contrast(150%) saturate(0);
+                mix-blend-mode: multiply;
+            }
+        }
+
+        .org-sticky-scroll__content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: calc(var(--base-measure) * 4);
+
+            // Fix: Hex variables cannot be directly placed into rgba().
+            // Use color-mix for modern dynamic transparency based on the theme hex variable.
+            background-color: color-mix(in srgb, var(--semantic-color-bg-primary) 85%, transparent);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            max-width: 80%;
+            border-radius: var(--semantic-border-radius);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); // Add shadow for depth
+
+            [data-theme="anger"] & {
+                background-color: var(--semantic-color-bg-primary);
+                border-radius: 0;
+            }
+
+            [data-theme="fear"] & {
+                background-color: color-mix(in srgb, var(--semantic-color-bg-primary) 60%, transparent); // Darker base for fear
+                box-shadow: none;
+                border: 1px solid var(--semantic-color-border-subtle);
+            }
+        }
+
+        .org-sticky-scroll__title {
+            font-family: var(--semantic-font-family-primary);
+            font-size: var(--semantic-font-size-2xl);
+            color: var(--semantic-color-text-primary);
+            margin: calc(var(--base-measure) * 2) 0;
+
+            [data-theme="anger"] & {
+                color: var(--semantic-color-primary);
+                text-transform: uppercase;
+            }
+        }
+
+        .org-sticky-scroll__meta {
+            display: block;
+            font-family: var(--semantic-font-family-secondary);
+            font-size: var(--semantic-font-size-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--semantic-color-primary); // Use primary color for accent
+            font-weight: 700;
+        }
+
+        .org-sticky-scroll__desc {
+            font-family: var(--semantic-font-family-primary);
+            font-size: var(--semantic-font-size-md);
+            color: var(--semantic-color-text-secondary);
+            line-height: 1.5;
+            margin-bottom: calc(var(--base-measure) * 4);
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .org-sticky-scroll__btn {
+            display: inline-block;
+            font-family: var(--semantic-font-family-primary-bold);
+            font-size: var(--semantic-font-size-sm);
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: calc(var(--base-measure) * 1.5) calc(var(--base-measure) * 3);
+            border: 1px solid var(--semantic-color-border-subtle);
+            color: var(--semantic-color-text-primary);
+            border-radius: 100px;
+            transition: all 0.3s ease;
+
+            [data-theme="sadness"] & {
+                border-radius: 4px;
+            }
+
+            [data-theme="anger"] & {
+                border-radius: 0;
+                border-width: 2px;
+            }
+
+            &:hover {
+                background-color: var(--semantic-color-text-primary);
+                color: var(--semantic-color-bg-primary);
+            }
+        }
+    }
+}

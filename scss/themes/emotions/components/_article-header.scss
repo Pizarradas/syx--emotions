@@ -1,0 +1,66 @@
+// ================================================
+// ORGANISM: ARTICLE HEADER
+// ================================================
+
+@use '../../../abstracts/index' as *;
+
+@mixin org-article-header {
+    @layer syx.organisms {
+        .org-article-header {
+            @include padding(calc(var(--base-measure) * 16) 5% calc(var(--base-measure) * 8));
+            background-color: var(--semantic-color-bg-primary);
+            text-align: center;
+            transition: var(--theme-transition);
+
+            &__container {
+                max-width: 800px;
+                margin: 0 auto;
+            }
+
+            &__tag {
+                color: var(--semantic-color-primary);
+                font-family: var(--semantic-font-family-primary-bold);
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                font-size: 0.875rem;
+                margin-bottom: calc(var(--base-measure) * 4);
+            }
+
+            &__title {
+                font-family: var(--semantic-font-family-primary-bold);
+                font-size: clamp(2.5rem, 6vw, 4.5rem);
+                line-height: 1.1;
+                color: var(--semantic-color-text-primary);
+                margin: 0 0 calc(var(--base-measure) * 6);
+            }
+
+            &__meta {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: calc(var(--base-measure) * 4);
+                font-family: var(--semantic-font-family-primary);
+                color: var(--semantic-color-text-tertiary);
+                font-size: 1rem;
+
+                strong {
+                    color: var(--semantic-color-text-primary);
+                }
+            }
+
+            &__figure {
+                margin: calc(var(--base-measure) * 8) auto 0;
+                max-width: 1200px;
+                @include aspect-ratio(21, 9);
+                border-radius: var(--semantic-border-radius-lg);
+                overflow: hidden;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+
+                img {
+                    @include size(100%);
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+}

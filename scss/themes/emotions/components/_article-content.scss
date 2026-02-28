@@ -1,0 +1,56 @@
+// ================================================
+// ORGANISM: ARTICLE CONTENT
+// ================================================
+
+@use '../../../abstracts/index' as *;
+
+@mixin org-article-content {
+    @layer syx.organisms {
+        .org-article-content {
+            background-color: var(--semantic-color-bg-primary);
+            @include padding(calc(var(--base-measure) * 8) 5% calc(var(--base-measure) * 16));
+            transition: var(--theme-transition);
+
+            &__container {
+                max-width: 720px;
+                margin: 0 auto;
+                font-family: var(--semantic-font-family-primary);
+                font-size: 1.125rem;
+                line-height: 1.8;
+                color: var(--semantic-color-text-secondary);
+
+                p {
+                    margin-bottom: calc(var(--base-measure) * 6);
+                }
+
+                h2 {
+                    font-family: var(--semantic-font-family-primary-bold);
+                    font-size: 2rem;
+                    color: var(--semantic-color-text-primary);
+                    margin: calc(var(--base-measure) * 10) 0 calc(var(--base-measure) * 4);
+                    line-height: 1.3;
+                }
+
+                blockquote {
+                    margin: calc(var(--base-measure) * 8) 0;
+                    @include padding(0 0 0 calc(var(--base-measure) * 6));
+                    border-left: 4px solid var(--semantic-color-primary);
+                    font-size: 1.5rem;
+                    line-height: 1.4;
+                    color: var(--semantic-color-text-primary);
+                    font-style: italic;
+                }
+
+                .dropcap {
+                    float: left;
+                    font-family: var(--semantic-font-family-primary-bold);
+                    font-size: 5rem;
+                    line-height: 0.8;
+                    color: var(--semantic-color-primary);
+                    margin-right: calc(var(--base-measure) * 2);
+                    margin-top: calc(var(--base-measure) * 1);
+                }
+            }
+        }
+    }
+}

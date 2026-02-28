@@ -1,0 +1,62 @@
+// ================================================
+// ORGANISM: EXPERIENTIAL PRELOADER
+// ================================================
+
+@use '../../../abstracts/index' as *;
+
+@mixin org-preloader {
+    @layer syx.organisms {
+        .org-preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #050505; // Deep black for impact
+            z-index: 99999; // Topmost element
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            color: #ffffff;
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); // For GSAP wipe transition
+        }
+
+        .org-preloader__percent {
+            font-family: var(--semantic-font-family-secondary, 'Oswald', sans-serif);
+            font-size: 15vw; // Massive
+            font-weight: 900;
+            line-height: 1;
+            margin: 0;
+            letter-spacing: -2px;
+            opacity: 0.8;
+
+            // Subtle pulse while loading
+            animation: preloader-pulse 2s infinite ease-in-out;
+        }
+
+        .org-preloader__text {
+            font-family: var(--semantic-font-family-primary);
+            font-size: var(--semantic-font-size-md);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-top: calc(var(--base-measure) * 2);
+            opacity: 0.5;
+        }
+
+        @keyframes preloader-pulse {
+
+            0%,
+            100% {
+                opacity: 0.6;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.02);
+            }
+        }
+    }
+}

@@ -1,0 +1,92 @@
+// ================================================
+// ORGANISM: FEATURED QUOTE
+// ================================================
+
+@use '../../../abstracts/index' as *;
+
+@mixin org-featured-quote {
+    @layer syx.organisms {
+        .org-featured-quote {
+            position: relative;
+            margin: calc(var(--base-measure) * 10) auto; // More vertical breathing room
+            padding: calc(var(--base-measure) * 4) var(--base-measure);
+            max-width: 900px; // Thinner for better readibility
+            text-align: center;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+
+            [data-theme="sadness"] & {
+                opacity: 0.8;
+            }
+        }
+
+        .org-featured-quote__text {
+            font-family: var(--semantic-font-family-primary);
+            font-size: clamp(2rem, 5vw, 4rem); // Responsive huge text
+            font-weight: 900;
+            line-height: 1.1;
+            color: var(--semantic-color-text-primary);
+            margin: 0;
+            position: relative;
+            z-index: 2;
+            transition: color 0.4s ease, letter-spacing 0.4s ease, transform 0.4s ease;
+
+            [data-theme="anger"] & {
+                text-transform: uppercase;
+                transform: skewX(-5deg);
+                color: var(--semantic-color-primary); // Bloody red/orange
+            }
+
+            [data-theme="surprise"] & {
+                letter-spacing: -2px;
+                transform: scaleY(1.2);
+                color: var(--semantic-color-primary);
+            }
+
+            [data-theme="fear"] & {
+                text-transform: lowercase;
+                letter-spacing: 4px;
+                color: var(--semantic-color-text-secondary);
+                font-weight: 400; // Frail
+            }
+        }
+
+        .org-featured-quote__bg-mark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: var(--semantic-font-family-primary);
+            font-size: 20rem;
+            font-weight: 900;
+            color: var(--semantic-color-primary);
+            opacity: 0.05;
+            z-index: 1;
+            pointer-events: none;
+            line-height: 0;
+            transition: opacity 0.4s ease, font-size 0.4s ease;
+
+            [data-theme="joy"] & {
+                opacity: 0.1;
+                font-size: 25rem;
+            }
+
+            [data-theme="disgust"] & {
+                opacity: 0.2;
+                filter: blur(8px); // Muddy blur mark
+            }
+        }
+
+        .org-featured-quote__author {
+            display: block;
+            margin-top: calc(var(--base-measure) * 2);
+            font-family: var(--semantic-font-family-secondary);
+            font-size: var(--semantic-font-size-md);
+            font-weight: 700;
+            color: var(--semantic-color-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 2;
+        }
+    }
+}

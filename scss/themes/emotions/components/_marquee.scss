@@ -1,0 +1,61 @@
+// ================================================
+// ORGANISM: MARQUEE (BREAKING NEWS)
+// ================================================
+
+@use '../../../abstracts/index' as *;
+
+@mixin org-marquee {
+    @layer syx.organisms {
+        .org-marquee {
+            @include relative();
+            width: 100vw;
+            max-width: 100vw;
+            margin-left: calc(-50vw + 50%); // Full bleed
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: calc(var(--base-measure) * 2) 0;
+            background-color: var(--semantic-color-text-primary);
+            color: var(--semantic-color-bg-primary);
+            border-top: 1px solid var(--semantic-color-border-subtle);
+            border-bottom: 1px solid var(--semantic-color-border-subtle);
+
+            // Emotion specific tweaks
+            [data-theme="anger"] & {
+                background-color: var(--semantic-color-primary); // Red hot ticker
+                color: var(--semantic-color-text-inverse);
+            }
+
+            [data-theme="fear"] & {
+                font-style: italic;
+                letter-spacing: 0.1em;
+            }
+        }
+
+        .org-marquee__track {
+            display: flex;
+            white-space: nowrap;
+            will-change: transform;
+            /* GSAP will animate this, but we can also use CSS as fallback */
+        }
+
+        .org-marquee__content {
+            display: flex;
+            align-items: center;
+            font-family: var(--semantic-font-family-primary-bold);
+            font-size: var(--semantic-font-size-md);
+            text-transform: uppercase;
+            padding-right: calc(var(--base-measure) * 10);
+
+            @media (min-width: 1024px) {
+                font-size: var(--semantic-font-size-xl);
+            }
+
+            .separator {
+                display: inline-block;
+                margin: 0 calc(var(--base-measure) * 6);
+                color: var(--semantic-color-primary);
+            }
+        }
+    }
+}

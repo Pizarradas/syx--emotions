@@ -1,0 +1,195 @@
+// ================================================
+// THEMATIC EMOTIONS THEME DEFINITION
+// ================================================
+
+@use '../../abstracts/index' as *;
+
+@mixin theme-emotions {
+
+    // Global base settings
+    :root {
+        // Base unit for sizing
+        --primitive-space-base: 0.5rem;
+
+        // Smooth transition between themes
+        --theme-transition: background-color 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+            color 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+            border-color 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+            border-radius 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    // ================================================
+    // 1. JOY (Alegría) - Bright, rounded, bouncy
+    // ================================================
+    :root,
+    [data-theme="joy"] {
+        --semantic-color-bg-primary: #fffbeb; // Amber 50
+        --semantic-color-bg-secondary: #fef3c7; // Amber 100
+        --semantic-color-bg-tertiary: #fde68a; // Amber 200
+        --semantic-color-bg-inverse: #d97706; // Amber 600
+
+        --semantic-color-primary: #d97706; // Amber 600
+        --semantic-color-secondary: #b45309; // Amber 700
+
+        --semantic-color-text-primary: #451a03; // Amber 900
+        --semantic-color-text-secondary: #78350f; // Amber 800
+        --semantic-color-text-tertiary: #92400e; // Amber 700
+        --semantic-color-text-inverse: #fffbeb; // Amber 50
+
+        --semantic-color-border-default: #fcd34d; // Amber 300
+        --semantic-color-border-subtle: #fde68a; // Amber 200
+        --semantic-color-border-strong: #fbbf24; // Amber 400
+
+        --semantic-font-family-primary: 'Outfit', 'Montserrat', sans-serif;
+        --semantic-font-family-primary-bold: 'Outfit', 'Montserrat', sans-serif;
+
+        --semantic-border-radius-default: 24px;
+        --semantic-border-radius-sm: 16px;
+        --semantic-border-radius-lg: 32px;
+    }
+
+    // ================================================
+    // 2. SADNESS (Tristeza) - Deep blues, heavy, slow, muted
+    // ================================================
+    [data-theme="sadness"] {
+        --semantic-color-bg-primary: #0f172a; // Slate 900
+        --semantic-color-bg-secondary: #1e293b; // Slate 800
+        --semantic-color-bg-tertiary: #334155; // Slate 700
+        --semantic-color-bg-inverse: #94a3b8; // Slate 400
+
+        --semantic-color-primary: #3b82f6; // Blue 500
+        --semantic-color-secondary: #2563eb; // Blue 600
+
+        --semantic-color-text-primary: #f8fafc; // Slate 50
+        --semantic-color-text-secondary: #cbd5e1; // Slate 300
+        --semantic-color-text-tertiary: #94a3b8; // Slate 400
+        --semantic-color-text-inverse: #0f172a; // Slate 900
+
+        --semantic-color-border-default: #475569; // Slate 600
+        --semantic-color-border-subtle: #334155; // Slate 700
+        --semantic-color-border-strong: #64748b; // Slate 500
+
+        --semantic-font-family-primary: 'Playfair Display', serif;
+        --semantic-font-family-primary-bold: 'Playfair Display', serif;
+
+        --semantic-border-radius-default: 4px;
+        --semantic-border-radius-sm: 2px;
+        --semantic-border-radius-lg: 8px;
+    }
+
+    // ================================================
+    // 3. ANGER (Ira) - Sharp, reds, blacks, aggressive
+    // ================================================
+    [data-theme="anger"] {
+        --semantic-color-bg-primary: #210303; // Red black
+        --semantic-color-bg-secondary: #450a0a; // Red 950
+        --semantic-color-bg-tertiary: #7f1d1d; // Red 900
+        --semantic-color-bg-inverse: #fef2f2; // Red 50
+
+        --semantic-color-primary: #dc2626; // Red 600
+        --semantic-color-secondary: #b91c1c; // Red 700
+
+        --semantic-color-text-primary: #fef2f2; // Red 50
+        --semantic-color-text-secondary: #fecaca; // Red 200
+        --semantic-color-text-tertiary: #fca5a5; // Red 300
+        --semantic-color-text-inverse: #210303; // Red black
+
+        --semantic-color-border-default: #991b1b; // Red 800
+        --semantic-color-border-subtle: #7f1d1d; // Red 900
+        --semantic-color-border-strong: #b91c1c; // Red 700
+
+        --semantic-font-family-primary: 'Oswald', 'Bebas Neue', sans-serif;
+        --semantic-font-family-primary-bold: 'Oswald', 'Bebas Neue', sans-serif;
+
+        --semantic-border-radius-default: 0px;
+        --semantic-border-radius-sm: 0px;
+        --semantic-border-radius-lg: 0px;
+    }
+
+    // ================================================
+    // 4. FEAR (Miedo) - Dark greens/purples, unsettling
+    // ================================================
+    [data-theme="fear"] {
+        --semantic-color-bg-primary: #050505; // Almost black
+        --semantic-color-bg-secondary: #171717; // Neutral 900
+        --semantic-color-bg-tertiary: #262626; // Neutral 800
+        --semantic-color-bg-inverse: #e5e5e5; // Neutral 200
+
+        --semantic-color-primary: #a855f7; // Purple 500
+        --semantic-color-secondary: #9333ea; // Purple 600
+
+        --semantic-color-text-primary: #e5e5e5; // Neutral 200
+        --semantic-color-text-secondary: #a3a3a3; // Neutral 400
+        --semantic-color-text-tertiary: #737373; // Neutral 500
+        --semantic-color-text-inverse: #050505; // Almost black
+
+        --semantic-color-border-default: #404040; // Neutral 700
+        --semantic-color-border-subtle: #262626; // Neutral 800
+        --semantic-color-border-strong: #525252; // Neutral 600
+
+        --semantic-font-family-primary: 'Cormorant Garamond', serif;
+        --semantic-font-family-primary-bold: 'Cormorant Garamond', serif;
+
+        --semantic-border-radius-default: 2px;
+        --semantic-border-radius-sm: 0px;
+        --semantic-border-radius-lg: 4px;
+    }
+
+    // ================================================
+    // 5. SURPRISE (Sorpresa) - Vibrant cyan/magenta, electric
+    // ================================================
+    [data-theme="surprise"] {
+        --semantic-color-bg-primary: #ecfeff; // Cyan 50
+        --semantic-color-bg-secondary: #cffafe; // Cyan 100
+        --semantic-color-bg-tertiary: #a5f3fc; // Cyan 200
+        --semantic-color-bg-inverse: #083344; // Cyan 950
+
+        --semantic-color-primary: #e879f9; // Fuchsia 400
+        --semantic-color-secondary: #d946ef; // Fuchsia 500
+
+        --semantic-color-text-primary: #083344; // Cyan 950
+        --semantic-color-text-secondary: #164e63; // Cyan 900
+        --semantic-color-text-tertiary: #155e75; // Cyan 800
+        --semantic-color-text-inverse: #ecfeff; // Cyan 50
+
+        --semantic-color-border-default: #67e8f9; // Cyan 300
+        --semantic-color-border-subtle: #a5f3fc; // Cyan 200
+        --semantic-color-border-strong: #22d3ee; // Cyan 400
+
+        --semantic-font-family-primary: 'Bebas Neue', 'Oswald', sans-serif;
+        --semantic-font-family-primary-bold: 'Bebas Neue', 'Oswald', sans-serif;
+
+        --semantic-border-radius-default: 16px;
+        --semantic-border-radius-sm: 8px;
+        --semantic-border-radius-lg: 24px;
+    }
+
+    // ================================================
+    // 6. DISGUST (Asco) - Muddy greens, sickly yellows
+    // ================================================
+    [data-theme="disgust"] {
+        --semantic-color-bg-primary: #f7fee7; // Lime 50
+        --semantic-color-bg-secondary: #ecfccb; // Lime 100
+        --semantic-color-bg-tertiary: #d9f99d; // Lime 200
+        --semantic-color-bg-inverse: #1a2e05; // Lime 950
+
+        --semantic-color-primary: #4d7c0f; // Lime 700
+        --semantic-color-secondary: #3f6212; // Lime 800
+
+        --semantic-color-text-primary: #1a2e05; // Lime 950
+        --semantic-color-text-secondary: #365314; // Lime 900
+        --semantic-color-text-tertiary: #4d7c0f; // Lime 700
+        --semantic-color-text-inverse: #f7fee7; // Lime 50
+
+        --semantic-color-border-default: #bef264; // Lime 300
+        --semantic-color-border-subtle: #d9f99d; // Lime 200
+        --semantic-color-border-strong: #a3e635; // Lime 400
+
+        --semantic-font-family-primary: 'DM Serif Display', serif;
+        --semantic-font-family-primary-bold: 'DM Serif Display', serif;
+
+        --semantic-border-radius-default: 8px;
+        --semantic-border-radius-sm: 4px;
+        --semantic-border-radius-lg: 12px;
+    }
+}

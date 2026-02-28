@@ -1,0 +1,67 @@
+// ================================================
+// ORGANISM: STATS
+// ================================================
+
+@use '../../../abstracts/index' as *;
+
+@mixin org-stats {
+    @layer syx.organisms {
+        .org-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: calc(var(--base-measure) * 4);
+            margin: calc(var(--base-measure) * 6) 0;
+            padding: calc(var(--base-measure) * 4) 0;
+            border-top: 2px solid var(--semantic-color-text-primary);
+            border-bottom: 2px solid var(--semantic-color-text-primary);
+
+            [data-theme="anger"] & {
+                border-width: 8px;
+                margin-top: calc(var(--base-measure) * 10);
+            }
+
+            [data-theme="sadness"] & {
+                border-color: rgba(255, 255, 255, 0.1);
+            }
+        }
+
+        .org-stats__item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .org-stats__number {
+            font-family: var(--semantic-font-family-primary);
+            font-size: 6rem;
+            font-weight: 900;
+            color: var(--semantic-color-primary);
+            line-height: 1;
+            margin-bottom: var(--base-measure);
+
+            [data-theme="joy"] & {
+                text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1); // Retro pop
+            }
+
+            [data-theme="fear"] & {
+                color: transparent;
+                -webkit-text-stroke: 1px var(--semantic-color-text-secondary);
+                font-weight: 100;
+            }
+        }
+
+        .org-stats__label {
+            font-family: var(--semantic-font-family-secondary);
+            font-size: var(--semantic-font-size-md);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--semantic-color-text-secondary);
+
+            [data-theme="surprise"] & {
+                color: var(--semantic-color-text-primary);
+            }
+        }
+    }
+}
