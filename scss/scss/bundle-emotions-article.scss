@@ -1,9 +1,0 @@
-// ================================================
-// THEME: EMOTIONS — ARTICLE BUNDLE
-// ================================================
-
-@use "themes/emotions/setup" as theme;
-@use "utilities/index" as *;
-
-// Load components required for ARTICLE context
-@include theme.bundle-components('article');
