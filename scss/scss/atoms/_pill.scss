@@ -1,0 +1,65 @@
+﻿// ATOM: PILL / BADGE
+// ===============================================
+@use "../abstracts/index" as *;
+
+@mixin atom-pill($theme: null) {
+  @layer syx.atoms {
+    .atom-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      @include padding(var(--semantic-space-component-xs) var(--semantic-space-component-sm));
+      border-radius: 999px;
+      font-size: var(--semantic-font-size-caption);
+      font-weight: var(--semantic-font-weight-bold);
+      letter-spacing: var(--semantic-letter-spacing-wide);
+      text-transform: uppercase;
+      line-height: 1;
+      white-space: nowrap;
+
+      // Default (neutral)
+      background-color: var(--semantic-color-bg-tertiary);
+      color: var(--semantic-color-text-secondary);
+
+      // --primary
+      &--primary {
+        background-color: color-mix(in srgb, var(--semantic-color-primary) 15%, var(--semantic-color-bg-primary));
+        color: var(--semantic-color-primary);
+        border: 1px solid color-mix(in srgb, var(--semantic-color-primary) 30%, var(--semantic-color-bg-primary));
+      }
+
+      // --secondary
+      &--secondary {
+        background-color: color-mix(in srgb, var(--semantic-color-secondary) 15%, var(--semantic-color-bg-primary));
+        color: var(--semantic-color-secondary);
+        border: 1px solid color-mix(in srgb, var(--semantic-color-secondary) 30%, var(--semantic-color-bg-primary));
+      }
+
+      // --success
+      &--success {
+        background-color: color-mix(in srgb, var(--semantic-color-state-success) 15%, var(--semantic-color-bg-primary));
+        color: var(--semantic-color-state-success);
+      }
+
+      // --warning
+      &--warning {
+        background-color: color-mix(in srgb, var(--semantic-color-state-warning) 15%, var(--semantic-color-bg-primary));
+        color: var(--semantic-color-state-warning);
+      }
+
+      // --danger
+      &--danger {
+        background-color: color-mix(in srgb, var(--semantic-color-state-error) 15%, var(--semantic-color-bg-primary));
+        color: var(--semantic-color-state-error);
+      }
+
+      // --dark
+      &--dark {
+        background-color: var(--semantic-color-bg-inverse);
+        color: var(--semantic-color-text-inverse);
+      }
+    }
+  }
+
+  // end @layer syx.atoms
+}

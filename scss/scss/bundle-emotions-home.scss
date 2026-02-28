@@ -1,0 +1,9 @@
+// ================================================
+// THEME: EMOTIONS — HOME BUNDLE
+// ================================================
+
+@use "themes/emotions/setup" as theme;
+@use "utilities/index" as *;
+
+// Load components required for HOME context
+@include theme.bundle-components('home');
